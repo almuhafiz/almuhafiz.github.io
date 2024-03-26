@@ -1,5 +1,5 @@
 body {
-    background: rgba(255, 201, 180, 0.2);
+    background: #ff914d26;
     font-family: 'Noto Sans';
 }
 
@@ -10,6 +10,7 @@ h1 {
     text-align: center;
     justify-content: center;
     font-family: 'Noto Sans';
+    font-size: 2rem;
 }
 
 h2, h3, h4 {
@@ -17,8 +18,8 @@ h2, h3, h4 {
 }
 
 .logo {
-    width: 28%;
-    padding-left: 1rem;
+    width: 20%;
+    margin-left: 1rem;
 }
 
 .navbar {
@@ -28,29 +29,10 @@ h2, h3, h4 {
 .dropdown {
     position: absolute;
     right: 2rem;
-
 }
 
 .footer {
     box-shadow: 3px 0 5px rgba(16, 16, 17, 0.3);
-}
-
-.UpperShapeCont {
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
-}
-
-.UpperShape {
-    width: 0;
-    border-top: 70vh solid;
-	border-left: 000px solid transparent;
-	border-right: 100vw solid transparent;
-    border-bottom: 00px solid;
-	height: 0;
-    position: relative;
-    max-width: 100%;
-    min-width: 99%;
 }
 
 .carousel {
@@ -60,9 +42,11 @@ h2, h3, h4 {
 } 
 
 .carouselW {
-    max-width: 60%;
+    max-width: 50%;
     max-height: 600px;
     margin: 2% auto;
+    margin-bottom: 5rem;
+    margin-top: 8rem;
 }
 
 .divavanttitre {
@@ -84,58 +68,46 @@ li {
     font-size: large;
 }
 
-.containerConcerts {
-    margin: 0% auto;
-    max-width: 60%;
-    padding-top: 1rem;
+.btn {
+    font-family: 'noto sans';
+    font-size: large;
 }
 
-.cadreconcert1 {
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 4rem;
+.accordiondiv {
     display: flex;
-    flex-direction: row-reverse;
-}
-
-.cadreconcert2 {
-    width: 100%;
-    height: max-content;
-    display: flex;
-    margin-bottom: 6rem;
+    align-items: center;
     justify-content: center;
 }
 
-.cadrephoto {
-    max-width: 40%;
-    max-height: 70%;
-    padding-top: 3rem;
-    position: relative;
+.ServicesCont {
+    max-width: 100%;
+    margin-top: -2rem;
 }
 
-.actualcadrephoto {
-    position: relative;
-    z-index: 3;
+.accordion {
+    width: 50%;
+    background: transparent;
 }
 
-.cadrephotoGUM {
-    max-width: 40%;
-    max-height: 70%;
-    padding-top: 3rem;
-    float: left;
-    padding-bottom: 4rem;
+.accordion-button {
+    background-color: #c21c022b;
 }
 
-.cadretexteG {
-    max-width: 60%;
-    height: 100%;
-    padding-right: 3rem;
+.accordion-button:focus {
+    background-color: #c21c022b;
+    box-shadow: none;
+    border-color: rgba(182, 36, 36, 0.116);
 }
 
-.cadretexteD {
-    max-width: 60%;
-    height: 100%;
-    padding-left: 3rem;
+.accordion-button:not(.collapsed) {
+    background-color: #c22202b3;
+    color: rgb(245, 245, 245);
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f5f5f5'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transform: rotate(-180deg)
 }
 
 p {
@@ -147,31 +119,6 @@ p {
     justify-content: center;
 }
 
-.eltablo {
-    justify-content: center;
-    display: flex;
-}
-
-th, td {
-    border-bottom: 0.5px solid lightgray;
-}
-
-.lefttdb {
-    padding-right: 6rem;
-}
-
-.lefttdv {
-    padding-right: 10rem;
-}
-
-.biere {
-    margin-right: 10%;
-}
-
-.vin {
-    margin-left: 15%;
-}
-
 .historique {
     margin: 0% auto;
     max-width: 60%;
@@ -180,50 +127,56 @@ th, td {
 
 .entrimage1 {
     width: 100%;
-    height: 25rem;
-    margin-top: 5rem;
-    background-image: url(../img/aile\ cuzdani_piti.jpg);
+    height: 29rem;
+    margin-top: 8.5rem;
+    background-image: url(../img/aile\ cuzdani\ filtered.jpg);
+    background-size: 100%;
+    image-rendering: optimizeSpeed;
+    background-position:center;
     background-attachment: fixed;
 }
 
 .entrimage2 {
     width: 100%;
-    height: 25rem;
-    margin-top: 5rem;
-    background-image: url(../img/passeport\ seul\ carte.jpg);
+    height: 29rem;
+    margin-top: 8.5rem;
+    background-image: url(../img/tampon.jpg);
+    background-size: 100%;
+    image-rendering: optimizeSpeed;
+    background-position:center;
     background-attachment: fixed;
 }
 
 .entrimage3 {
     width: 100%;
-    height: 25rem;
+    height: 29rem;
     margin-top: 5rem;
-    background-image: url(../img/deux\ passeports\ piti.jpg);
+    background-image: url(../img/deux-passeports-turcs.jpg);
+    background-size: 100%;
+    image-rendering: optimizeSpeed;
+    background-position:center;
     background-attachment: fixed;
 }
 
+.CVCont {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 .titleContact {
-    padding-top: 1rem;
+    margin: 2rem;
 }
 
 .containerContact {
     margin-left: 20%;
     margin-right: 20%;
     max-width: 60%;
-    padding-top: 1rem;
+    padding-top: 8rem;
     display: flex;
     z-index: 2;
     justify-content: center;
     margin-bottom: 2rem;
-}
-
-.map {
-    max-width: 70%;
-    position: relative;
-}
-
-.mapitself {
-    max-width: 99%;
 }
 
 .infosContact {
@@ -235,7 +188,6 @@ th, td {
 
 .pInfos {
     margin-bottom: 0;
-    color: white;
 }
 
 .ContacTextBRdiv {
@@ -250,7 +202,7 @@ th, td {
 }
 
 .SMlogos {
-    width: 30px;
+    width: 1.8rem;
     margin-right: 30px;
 }
 
@@ -266,121 +218,9 @@ th, td {
     position: relative;
 }
 
-.BottomShapeCont {
-    width: 100%;
-    position: absolute;
-    overflow: hidden;
-    z-index: -1;
-    bottom: 0vh;
-}
-
-.BottomShape {
-    width: 0;
-    border-top: 0 solid;
-	border-left: 100vw solid transparent;
-	border-right: 0 solid transparent;
-    border-bottom: 70vh solid;
-	height: 0;
-    position: relative;
-    max-width: 100%;
-    min-width: 99%;
-}
-
 .footer {
      align-items: flex-end;
  }
-
-.myownfuckingfade1::after {
-    content: "19/06/2021";
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgb(31, 31, 31);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0%;
-    transition: opacity 0.5s ease;
-}
-
-.myownfuckingfade1:hover::after {
-    opacity: 85%;
-}
-
-.myownfuckingfade2::after {
-    content: "26/06/2021";
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgb(31, 31, 31);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0%;
-    transition: opacity 0.5s ease;
-}
-
-.myownfuckingfade2:hover::after {
-    opacity: 85%;
-}
-
-.myownfuckingfade3::after {
-    content: "03/07/2021";
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgb(31, 31, 31);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0%;
-    transition: opacity 0.5s ease;
-}
-
-.myownfuckingfade3:hover::after {
-    opacity: 85%;
-}
-
-.logoReseaux {
-    position: absolute;
-    top: 45%;
-    left: 47%;
-    z-index: 5;
-}
-
-.BandsLogosContRight {
-    padding-top: 15px;
-    max-width: 100%;
-    height: 45px;
-    text-align: right;
-}
-
-.BandsLogosContLeft {
-    padding-top: 15px;
-    max-width: 100%;
-    height: 45px;
-}
-
-.InstaLogoEtc {
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
-}
-
-.InstaLogoEtcLeft {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-}
 
 	/* Whole html box designing */
 	html {
@@ -396,10 +236,8 @@ th, td {
 		
 	/* Styling column */
 	.column {
-		float: left;
-		width: 33%;
-		margin-bottom: 16px;
-		padding: 2px 10px;
+		width: 53%;
+		margin-bottom: 8rem;
 	}
 		
 	/* Column width change depends
@@ -418,24 +256,6 @@ th, td {
 		
 	.containerNEW {
 		padding: 0 16px;
-	}
-		
-	/* Icon styling */
-	.fa {
-		margin: 10px;
-		font-size:68px;
-	}
-		
-	.fa:hover {
-		transform: rotateY(180deg);
-		transition: transform 0.8s;
-	}
-		
-	.container::after,
-	.row::after {
-		content: "";
-		clear: both;
-		display: table;
 	}
 		
 	/* Button designing */
@@ -482,74 +302,7 @@ th, td {
         max-height: 600px;
         margin: 2% auto;
     
-    } 
-
-    .containerConcerts {
-        margin: 0% auto;
-        max-width: 90%;
-        padding-top: 1rem;
     }
-    
-    .cadreconcert1 {
-        width: 100%;
-        height: max-content;
-        display: flex;
-        justify-content: center;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .cadreconcert2 {
-        width: 100%;
-        height: max-content;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .cadrephoto {
-        max-width: 35%;
-        max-height: 70%;
-        padding-top: 3rem;
-    }
-    
-    
-    .cadretexteG {
-        width: 100%;
-        height: 100%;
-        padding-right: 2rem;
-    }
-    
-    .cadretexteD {
-        width: 100%;
-        height: 100%;
-        padding-left: 3rem;
-    }
-
-    .eltablo {
-        justify-content: center;
-        display: flex;
-    }
-    
-    th, td {
-        border-bottom: 0.5px solid lightgray;
-    }
-    
-    .lefttdb {
-        padding-right: 6rem;
-    }
-    
-    .lefttdv {
-        padding-right: 10rem;
-    }
-    
-    .biere {
-        margin-right: 10%;
-    }
-    
-    .vin {
-        margin-left: 10%;
-    }
-
 
     .historique {
         margin: 0% auto;
@@ -564,16 +317,6 @@ th, td {
         padding-top: 1rem;
         display: block;
         text-align: center;
-    }
-    
-    .map {
-        margin-bottom: 3vh;
-        max-width: 100%;
-        display: block;
-    }
-    
-    .mapitself {
-        max-width: 99%;
     }
     
     .infosContact {
@@ -601,6 +344,40 @@ th, td {
         height: 1rem;
     }
 
+    
+    .entrimage1 {
+        width: 100%;
+        height: 29rem;
+        margin-top: 8.5rem;
+        background-image: url(../img/aile\ cuzdani\ filtered.jpg);
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
+    }
+    
+    .entrimage2 {
+        width: 100%;
+        height: 29rem;
+        margin-top: 8.5rem;
+        background-image: url(../img/tampon.jpg);
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
+    }
+    
+    .entrimage3 {
+        width: 100%;
+        height: 29rem;
+        margin-top: 5rem;
+        background-image: url(../img/deux-passeports-turcs.jpg);
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
+    }
+
   }
   
 
@@ -626,75 +403,6 @@ th, td {
         max-width: 100%;
         max-height: 600px;
         margin-top: -1rem;
-    } 
-
-    .containerConcerts {
-        margin: 0% auto;
-        max-width: 90%;
-        padding-top: 1rem;
-    }
-    
-    .cadreconcert1 {
-        width: 100%;
-        height: max-content;
-        display: block;
-        justify-content: center;
-        margin-top: 3rem;
-    }
-    
-    .cadreconcert2 {
-        width: 100%;
-        height: max-content;
-        display: block;
-        justify-content: center;
-    }
-    
-    .cadrephoto {
-        max-width: 100%;
-        max-height: 70%;
-        padding-top: 0.5rem;
-    }
-    
-    .cadrephotoGUM {
-        max-width: 100%;
-        max-height: 70%;
-        padding-top: 0.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .cadretexteG {
-        max-width: 100%;
-        height: 100%;
-        padding: 0%;
-    }
-    
-    .cadretexteD {
-        width: 100%;
-        height: 100%;
-        padding: 0%;
-    }
-
-    .eltablo {
-        justify-content: center;
-        display: block;
-    }
-    
-    th, td {
-        border-bottom: 0.5px solid lightgray;
-        width: 100%;
-    }
-
-    .righttdv {
-        padding-right: 1.4rem;
-    }
-    
-    .biere {
-        margin: 0%;
-        margin-bottom: 2rem;
-    }
-    
-    .vin {
-        margin: 0%;
     }
 
     .historique {
@@ -703,16 +411,37 @@ th, td {
         padding-top: 1rem;
     }
 
-    .UpperShape {
-        width: 0;
-        border-top: 55vh solid rgb(41, 43, 44);
-        border-left: 000px solid transparent;
-        border-right: 225vw solid transparent;
-        border-bottom: 00px solid rgb(41, 43, 44);
-        height: 0;
-        position: relative;
-        max-width: 100%;
-        min-width: 99%;
+    
+    .entrimage1 {
+        width: 100%;
+        height: 20rem;
+        margin-top: 8.5rem;
+        background-image: url(../img/aile\ cuzdani\ filtered.jpg);
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
     }
-  
+    
+    .entrimage2 {
+        width: 100%;
+        height: 20rem;
+        margin-top: 8.5rem;
+        background-image: url(../img/tampon.jpg);
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
+    }
+    
+    .entrimage3 {
+        width: 100%;
+        height: 20rem;
+        margin-top: 5rem;
+        background-image: url(../img/deux-passeports-turcs.jpg);
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
+    }
 }
