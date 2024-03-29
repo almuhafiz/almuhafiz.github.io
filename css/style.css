@@ -1,5 +1,5 @@
 body {
-    background: #ff914d26;
+    background: #ff914d25;
     font-family: 'Noto Sans';
 }
 
@@ -11,11 +11,20 @@ h1 {
     justify-content: center;
     font-family: 'Noto Sans';
     font-size: 2rem;
+    font-weight: bold;
 }
 
 h2, h3, h4 {
     font-family: 'Noto Sans';
 }
+
+a {
+    color: white;
+  }
+
+a:hover {
+    color: #B5390E;
+  }
 
 .logo {
     width: 20%;
@@ -26,6 +35,10 @@ h2, h3, h4 {
     box-shadow: 0 3px 5px rgba(16, 16, 17, 0.3);
 }
 
+.phover:hover {
+    color: #ff4000;
+}
+
 .dropdown {
     position: absolute;
     right: 2rem;
@@ -33,6 +46,18 @@ h2, h3, h4 {
 
 .footer {
     box-shadow: 3px 0 5px rgba(16, 16, 17, 0.3);
+}
+
+.footerCentralDiv {
+    width: 33.33%;
+}
+
+.footerLeftDiv {
+    width: 33.33%;
+}
+
+.footerRightDiv {
+    width: 33.33%;
 }
 
 .carousel {
@@ -71,6 +96,19 @@ li {
 .btn {
     font-family: 'noto sans';
     font-size: large;
+    border: none;
+}
+
+.btn:hover {
+    font-family: 'noto sans';
+    font-size: large;
+    background-color: #B5390E;
+    border: none;
+    color: white;
+}
+
+.dropdowntxt:hover {
+    color: black;
 }
 
 .accordiondiv {
@@ -90,7 +128,7 @@ li {
 }
 
 .accordion-button {
-    background-color: #c21c022b;
+    background-color: #c21c0216;
 }
 
 .accordion-button:focus {
@@ -115,10 +153,6 @@ p {
     text-justify: inter-word;
 }
 
-.footer {
-    justify-content: center;
-}
-
 .historique {
     margin: 0% auto;
     max-width: 60%;
@@ -127,35 +161,38 @@ p {
 
 .entrimage1 {
     width: 100%;
-    height: 29rem;
+    height: 52vh;
     margin-top: 8.5rem;
     background-image: url(../img/aile\ cuzdani\ filtered.jpg);
     background-size: 100%;
     image-rendering: optimizeSpeed;
     background-position:center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .entrimage2 {
     width: 100%;
-    height: 29rem;
+    height: 52vh;
     margin-top: 8.5rem;
     background-image: url(../img/tampon.jpg);
     background-size: 100%;
     image-rendering: optimizeSpeed;
     background-position:center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .entrimage3 {
     width: 100%;
-    height: 29rem;
+    height: 52vh;
     margin-top: 5rem;
     background-image: url(../img/deux-passeports-turcs.jpg);
     background-size: 100%;
     image-rendering: optimizeSpeed;
     background-position:center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .CVCont {
@@ -204,23 +241,27 @@ p {
 .SMlogos {
     width: 1.8rem;
     margin-right: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.SMlogos:hover {
+    filter: none;
 }
 
 .viendez {
     font-size: x-large;
+    text-align: center;
+}
+
+.mail {
+    text-align: center;
+    margin-top: -1rem;
 }
 
 .signature {
     font-size: small;
+    text-align: end;
 }
-
-.BSCCont {
-    position: relative;
-}
-
-.footer {
-     align-items: flex-end;
- }
 
 	/* Whole html box designing */
 	html {
@@ -236,49 +277,21 @@ p {
 		
 	/* Styling column */
 	.column {
-		width: 53%;
-		margin-bottom: 8rem;
-	}
-		
-	/* Column width change depends
-		on screen size */
-	@media screen and (max-width: 670px) {
-		.column {
-			width: 100%;
-			text-align: none;
-		}
+		width: 65vh;
+		margin-bottom: 10vh;
+        display: flex;
+        align-content: center;
 	}
 		
 	/* Card designing */
 	.card {
-        background: #292b2c23;
+        background: #ff672b23;
+        width: 90vw;
+        align-self: auto;
 	}
 		
 	.containerNEW {
-		padding: 0 16px;
-	}
-		
-	/* Button designing */
-	.button {
-		border: none;
-		padding: 8px;
-		color: white;
-		background-color: #3f3f3f;
-		text-align: center;
-		cursor: pointer;
-		width: 100%;
-		margin-bottom: 10px;
-	}
-		
-	/* Hover efect on button */
-	.button:hover {
-		background-color: rgb(178, 216, 12);
-	}
-	
-	/* Margin first member of team */
-	#gfg {
-		float: none;
-		margin: auto;
+		padding: 2rem;
 	}
 
 
@@ -301,15 +314,14 @@ p {
         max-width: 90%;
         max-height: 600px;
         margin: 2% auto;
-    
     }
-
+    
     .historique {
         margin: 0% auto;
         max-width: 90%;
         padding-top: 1rem;
     }
-
+    
     .containerContact {
         margin-left: 10%;
         margin-right: 10%;
@@ -325,7 +337,7 @@ p {
         padding-left: 0rem;
         display: block;
     }
-
+    
     .ContacTextBRdiv {
         bottom: 0;
         text-align: center;
@@ -334,7 +346,7 @@ p {
         margin-left: 0% auto;
         margin-right: 0% auto;
     }
-
+    
     .pInfos {
         text-align: center;
         margin-bottom: 0;
@@ -343,7 +355,7 @@ p {
     .emptyDiv {
         height: 1rem;
     }
-
+    
     
     .entrimage1 {
         width: 100%;
@@ -359,12 +371,13 @@ p {
     .entrimage2 {
         width: 100%;
         height: 29rem;
-        margin-top: 8.5rem;
+        margin-top: 3rem;
         background-image: url(../img/tampon.jpg);
         background-size: 100%;
         image-rendering: optimizeSpeed;
         background-position:center;
         background-attachment: scroll;
+        background-repeat: no-repeat;
     }
     
     .entrimage3 {
@@ -376,23 +389,24 @@ p {
         image-rendering: optimizeSpeed;
         background-position:center;
         background-attachment: scroll;
+        background-repeat: no-repeat;
     }
-
-  }
-  
-
-
-
-
+    
+}
 
 
 
 
 @media only screen and (max-width: 660px) {
     body {
-      background-color: lightpin;
+        background-color: lightpin;
     }
 
+    .logo {
+        width: 3rem;
+        margin-left: 1rem;
+    }
+    
     .carousel {
         width: 100%;
         height: 100%;
@@ -402,20 +416,20 @@ p {
     .carouselW {
         max-width: 100%;
         max-height: 600px;
-        margin-top: -1rem;
+        margin: 5rem auto;
     }
-
+    
     .historique {
         margin: 0% auto;
         max-width: 90%;
         padding-top: 1rem;
     }
-
+    
     
     .entrimage1 {
         width: 100%;
         height: 20rem;
-        margin-top: 8.5rem;
+        margin-top: 8rem;
         background-image: url(../img/aile\ cuzdani\ filtered.jpg);
         background-size: 100%;
         image-rendering: optimizeSpeed;
@@ -425,8 +439,8 @@ p {
     
     .entrimage2 {
         width: 100%;
-        height: 20rem;
-        margin-top: 8.5rem;
+        height: 30rem;
+        margin-top: 2vh;
         background-image: url(../img/tampon.jpg);
         background-size: 100%;
         image-rendering: optimizeSpeed;
@@ -437,11 +451,30 @@ p {
     .entrimage3 {
         width: 100%;
         height: 20rem;
-        margin-top: 5rem;
+        margin-top: 2vh;
         background-image: url(../img/deux-passeports-turcs.jpg);
         background-size: 100%;
         image-rendering: optimizeSpeed;
         background-position:center;
         background-attachment: scroll;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .footer {
+        border-width: 10rem;
+        border-color: yellowgreen;
+        display: inline-block;
+    }
+    .footerCentralDiv {
+        width: 33.33%;
+    }
+    
+    .footerLeftDiv {
+        width: 10%;
+    }
+    
+    .footerRightDiv {
+        width: 33.33%;
     }
 }
