@@ -23,11 +23,15 @@ a {
   }
 
 a:hover {
-    color: #B5390E;
+    color: #ff4000;
   }
 
+.maildanstxt {
+    color: rgb(31, 21, 21);
+}
+
 .logo {
-    width: 20%;
+    width: 16%;
     margin-left: 1rem;
 }
 
@@ -71,7 +75,7 @@ a:hover {
     max-height: 600px;
     margin: 2% auto;
     margin-bottom: 5rem;
-    margin-top: 8rem;
+    margin-top: 9.2rem;
 }
 
 .divavanttitre {
@@ -206,36 +210,13 @@ p {
 }
 
 .containerContact {
-    margin-left: 20%;
-    margin-right: 20%;
-    max-width: 60%;
-    padding-top: 8rem;
-    display: flex;
-    z-index: 2;
+    margin: auto;
+    max-width: 30%;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
     justify-content: center;
+    text-align: justify;
     margin-bottom: 2rem;
-}
-
-.infosContact {
-    max-width: 50%;
-    min-width: 30%;
-    padding-left: 4rem;
-    position: relative;
-}
-
-.pInfos {
-    margin-bottom: 0;
-}
-
-.ContacTextBRdiv {
-    bottom: 0;
-    justify-self: center;
-    position: absolute;
-    padding-bottom: 0.5rem;
-}
-
-.emptyDiv {
-    height: 1rem;
 }
 
 .SMlogos {
@@ -249,7 +230,7 @@ p {
 }
 
 .viendez {
-    font-size: x-large;
+    font-size: large;
     text-align: center;
 }
 
@@ -284,10 +265,10 @@ p {
 	}
 		
 	/* Card designing */
-	.card {
+	.cardi {
         background: #ff672b23;
-        width: 90vw;
-        align-self: auto;
+        width: 80vw;
+        border-radius: 20px;
 	}
 		
 	.containerNEW {
@@ -298,12 +279,7 @@ p {
 
 
 
-@media only screen and (max-width: 990px) {
-    body {
-      background-color: lightblu;
-    }
-
-  
+@media only screen and (max-width: 990px) {  
     .carousel {
         width: 100%;
         height: 100%;
@@ -346,16 +322,6 @@ p {
         margin-left: 0% auto;
         margin-right: 0% auto;
     }
-    
-    .pInfos {
-        text-align: center;
-        margin-bottom: 0;
-    }
-    
-    .emptyDiv {
-        height: 1rem;
-    }
-    
     
     .entrimage1 {
         width: 100%;
