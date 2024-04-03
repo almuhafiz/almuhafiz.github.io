@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlöTrad</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/LOGO_ALÖTRAD.svg" />
+    <link rel="shortcut icon" type="image/x-icon" class="logoAloTrad" href="img/LOGO_ALÖTRAD_BLACK.svg" />
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-          <div><a class="navbar-brand" href="#"><img src="./img/SVG/Fichier 9.svg" class="logo"></a></div>
+          <div class="navbarLogoDiv">
+            <a class="navbar-brand" href="#">
+              <img src="./img/SVG/Fichier 9.svg" class="navbarLogo">
+            </a>
+          </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -27,7 +28,7 @@
                 <a class="nav-link text-light navbarbutton" aria-current="page" href="#"><p class="phover">Accueil</p></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light navbarbutton" href="#Au menu"><p class="phover">Services</p></a>
+                <a class="nav-link text-light navbarbutton" href="#Services"><p class="phover">Services</p></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-light navbarbutton" href="#La team"><p class="phover">CV</p></a>
@@ -41,12 +42,12 @@
             </ul>
             <div class="dropdown">
               <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                FR
+                fr
               </button>
               <ul class="dropdown-menu dropdown-sm bg-dark dropdown-menu-end">
-                <li><a class="dropdown-item text-light" href="./en"><p class="dropdowntxt">EN <img src="./img/gb.svg" alt="Anglais" width="4" height="18"></p></a></li>
-                <li><a class="dropdown-item text-light" href="#"><p class="dropdowntxt">FR <img src="./img/fr.svg" alt="Français" height="18"></p></a></li>
-                <li><a class="dropdown-item text-light" href="./tr"><p class="dropdowntxt">TR <img src="./img/tr.svg" alt="Turc" height="18"></p></a></li>
+                <li><a class="dropdown-item text-light" href="./en"><p class="dropdowntxt">en <img src="./img/gb.svg" alt="Anglais" width="4" height="18"></p></a></li>
+                <li><a class="dropdown-item text-light" href="#"><p class="dropdowntxt">fr <img src="./img/fr.svg" alt="Français" height="18"></p></a></li>
+                <li><a class="dropdown-item text-light" href="./tr"><p class="dropdowntxt">tr <img src="./img/tr.svg" alt="Turc" height="18"></p></a></li>
               </ul>
             </div>
           </div>
@@ -68,28 +69,28 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="./img/TRAD JUREE TRAD LITT TRAD SITES WEB/3.png" class="d-block w-100" alt="traduction jurée">
+                <img src="./img/TRAD JUREE TRAD LITT TRAD SITES WEB/Traduction assermentée - traduction jurée - Bruxelles, Belgique ©2024 Alötrad.png" class="d-block w-100" alt="traduction jurée">
 
                 <div class="carousel-caption d-none d-md-block">
                   </div>
 
               </div>
               <div class="carousel-item">
-                <img src="./img/TRAD JUREE TRAD LITT TRAD SITES WEB/4.png" class="d-block w-100" alt="traduction de sites web">
+                <img src="./img/TRAD JUREE TRAD LITT TRAD SITES WEB/Traduction de sites web - Bruxelles, Belgique ©2024 Alötrad.png" class="d-block w-100" alt="traduction de sites web">
 
                 <div class="carousel-caption d-none d-md-block">
                   </div>
 
                 </div>
               <div class="carousel-item">
-                <img src="./img/TRAD JUREE TRAD LITT TRAD SITES WEB/6.png" class="d-block w-100" alt="traduction de sites web">
+                <img src="./img/TRAD JUREE TRAD LITT TRAD SITES WEB/Traduction de jeux vidéo - Bruxelles, Belgique ©2024 Alötrad.png" class="d-block w-100" alt="traduction de jeux vidéo">
 
                 <div class="carousel-caption d-none d-md-block">
                   </div>
 
               </div>
               <div class="carousel-item">
-                <img src="./img/TRAD JUREE TRAD LITT TRAD SITES WEB/8.png" class="d-block w-100" alt="traduction littéraire">
+                <img src="./img/TRAD JUREE TRAD LITT TRAD SITES WEB/Traduction littéraire - Bruxelles, Belgique ©2024 Alötrad.png" class="d-block w-100" alt="traduction littéraire">
 
                 <div class="carousel-caption d-none d-md-block">
                   </div>
@@ -109,9 +110,9 @@
 
     <div class="entrimage1"></div>
 
-    <div class="divavanttitre" id="Au menu"></div>
+    <div class="divavanttitre" id="Services"></div>
     
-    <div class="container border border-0 border-white w-150 ServicesCont">
+    <div class="container border border-0 border-white w-100 ServicesCont">
               
         <h1 class="titles">Services</h1>
 
@@ -125,7 +126,11 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                La <strong>traduction jurée</strong>, également connue sous le nom de traduction <strong>certifiée</strong> ou <strong>assermentée</strong>, est un type de traduction officielle généralement requise pour les documents légaux ou administratifs dans certains pays. Un traducteur juré est un professionnel qui a prêté serment devant les autorités compétentes (le SPF Justice, en l'occurrence), s'engageant ainsi à fournir des traductions fidèles et précises des documents officiels. Les traductions jurées sont souvent nécessaires pour les certificats de naissance, de mariage, les diplômes, les contrats, les actes notariés, les jugements, et d'autres documents similaires. Ces traductions sont accompagnées d'une déclaration officielle du traducteur attestant de l'exactitude et de l'intégrité de la traduction, ainsi que de son cachet et de sa signature pour garantir leur authenticité.<br><br>AlöTrad vous propose des traductions jurées de l'<strong>anglais vers le français</strong> ou du <strong>turc vers le français</strong>.
+                La <strong>traduction jurée</strong>, aussi appelée traduction <strong>certifiée</strong> ou <strong>assermentée</strong>, est un type de traduction officielle généralement requise pour les documents légaux ou administratifs auprès de certains organismes officiels (Justice, commune, police, etc.). Un traducteur juré est un professionnel qui a prêté serment devant les autorités compétentes (le SPF Justice dans le cas de la Belgique), s'engageant ainsi à fournir des <strong>traductions fidèles et précises des documents officiels</strong>. Les traductions jurées sont souvent nécessaires pour les certificats de naissance, de mariage, les diplômes, les contrats, les actes notariés, les jugements, etc. Ces traductions sont accompagnées d'une déclaration officielle du traducteur attestant de l'exactitude et de l'intégrité de la traduction, ainsi que de son cachet<strong>*</strong> et de sa signature pour garantir leur authenticité.<br><br>
+                
+                <strong>*</strong>En Belgique, depuis le 1er décembre 2022, le cachet physique officiel est remplacé par la signature électronique du traducteur ou du traducteur-interprète juré.<br><br>
+                
+                AlöTrad vous propose des traductions jurées de l'<strong>anglais vers le français</strong> et du <strong>turc vers le français</strong>.
               </div>
             </div>
           </div>
@@ -137,7 +142,13 @@
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                La <strong>légalisation</strong> est le processus par lequel un document est authentifié afin qu'il soit reconnu comme valide dans un pays autre que celui où il a été émis. Ce processus implique généralement l'ajout d'une certification officielle ou d'un sceau par une autorité compétente, telle qu'une ambassade ou un consulat, confirmant l'authenticité de la signature du signataire et, le cas échéant, l'autorité de la personne qui a apposé cette signature. La légalisation peut être nécessaire pour les documents légaux, tels que les actes notariés, les certificats de naissance, de mariage et de décès, lorsqu'ils doivent être utilisés dans un pays autre que celui où ils ont été émis. Il est donc important de <strong>vérifier auprès de l'organisme</strong> à qui vous adresserez la traduction de vos documents s'il requiert ou non une légalisation.
+                La <strong>légalisation</strong> désigne la procédure par laquelle un fonctionnaire certifie l’authenticité de la signature apposée sur un document. S’il s’agit d’un acte public, la qualité du signataire et l’identité du sceau ou du timbre officiel apposé sur le document sont également confirmées.<br><br>
+
+                Elle permet d’utiliser <strong>un document belge à l’étranger</strong> ou <strong>un document étranger en Belgique</strong>. L’apostille est une sorte de légalisation et peut, dans certains cas (selon le pays de destination), s'avérer suffisante.<br><br>
+                
+                Il est important de <strong>vérifier</strong> quelle formalité correspond à votre situation avec <a class="aBlack" href="https://diplomatie.belgium.be/fr/legalisation-de-documents" target="_blank">le service compétent du SPF Affaires étrangères</a>.<br><br>
+
+                AlöTrad peut s'occuper de légaliser ou de faire légaliser vos traductions <strong>uniquement si elles ont été effectuées par nos soins</strong>.
               </div>
             </div>
           </div>
@@ -149,7 +160,9 @@
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                La <strong>traduction simple</strong> (ou traduction libre), est un processus par lequel un texte est traduit d'une langue source vers une langue cible sans exigences particulières de certification ou d'authentification. Contrairement à la traduction jurée, la traduction simple n'est pas réalisée par un traducteur ayant prêté serment, et elle n'est pas accompagnée d'une certification officielle. Ce type de traduction est couramment utilisé pour une variété de documents non officiels tels que des articles, des blogs, des correspondances commerciales, des sites web, des brochures, etc. Bien que la traduction simple ne nécessite pas de formalités légales spécifiques, elle doit néanmoins garantir une fidélité et une précision dans le transfert du sens et de l'intention du texte d'origine vers la langue cible.<br><br>AlöTrad vous propose des traductions libres de l'<strong>anglais vers le français</strong>, du <strong>turc vers le français</strong> ou du <strong>néerlandais vers le français</strong>.
+                La <strong>traduction simple</strong> (ou traduction libre), est un processus par lequel un texte est traduit d'une langue source vers une langue cible sans exigences particulières de certification ou d'authentification. Contrairement à la traduction jurée, la traduction simple n'est pas réalisée par un traducteur ayant prêté serment, et elle n'est pas accompagnée d'une certification officielle. Ce type de traduction est couramment utilisé pour une variété de documents non officiels tels que des articles, des blogs, des correspondances commerciales, des sites web, des brochures, etc. Bien que la traduction simple ne nécessite pas de formalités légales spécifiques, elle doit néanmoins garantir une fidélité et une précision dans le transfert du sens et de l'intention du texte d'origine vers la langue cible.<br><br>
+                
+                AlöTrad vous propose des traductions libres de l'<strong>anglais vers le français</strong>, du <strong>turc vers le français</strong> ou du <strong>néerlandais vers le français</strong>.
               </div>
             </div>
           </div>
@@ -171,13 +184,18 @@
 						<h4>Alexis Erol Leborgne-Özçelikel</h4><h6>Traducteur juré en charge d'AlöTrad</h6>
 						<p></p>
 						<p>
-              Après avoir obtenu son baccalauréat en traduction et interprétation à l'Université Saint-Louis, Alexis Erol Leborgne-Özçelikel a continué à cultiver sa passion pour les langues et les cultures en poursuivant un Master en traduction spécialisée en affaires européennes et internationales à l'UCLouvain. Fort de cette solide formation académique, il a rapidement embrassé une carrière en tant que traducteur indépendant, mettant en pratique ses compétences linguistiques et son expertise spécialisée pour servir une clientèle diversifiée à travers le monde.br
-<br><br>
-              En tant que traducteur juré, Alexis est également reconnu par les autorités compétentes en Belgique, figurant sur la liste officielle du SPF Justice. Cette accréditation atteste de son engagement envers les normes les plus élevées de qualité et d'intégrité dans son travail de traduction. Fort de cette certification, Alexis est habilité à produire des traductions officielles et certifiées pour une variété de documents juridiques, administratifs et officiels, offrant à ses clients une tranquillité d'esprit et une assurance quant à l'authenticité et à la validité de ses traductions.
-<br><br>
-              Doté d'une solide formation en informatique et en programmation, Alexis apporte également une compréhension approfondie des technologies modernes à ses projets de traduction. Cette expertise lui permet de traduire efficacement des documents techniques, des spécifications logicielles et du contenu lié à l'informatique avec une précision et une cohérence exceptionnelles. En combinant ses compétences en traduction avec sa maîtrise des langages de programmation et des outils de développement web, Alexis offre un service complet et professionnel pour répondre à une variété de besoins de traduction dans le domaine de l'informatique et du développement web.
-<br><br>
-              Que ce soit pour la traduction de documents juridiques, de contrats commerciaux, de rapports financiers, de manuels techniques ou de contenu informatique, Alexis s'engage à fournir des traductions de haute qualité qui préservent l'intégrité du contenu d'origine tout en garantissant une communication claire et efficace dans différentes langues. En faisant appel à ses services, vous bénéficierez d'une collaboration professionnelle et personnalisée, visant à surpasser vos attentes en matière de traduction et à vous aider à atteindre vos objectifs linguistiques avec succès.
+              Après l’obtention de son <strong>bachelier (licence) en traduction et interprétation</strong> à l'Université Saint-Louis, Alexis a continué à cultiver sa passion pour les langues et leur traduction en poursuivant un <strong>Master en traduction spécialisée en affaires européennes et internationales</strong> à l'UCLouvain. Au sortir de cette solide formation académique, il s’est rapidement lancé dans l’<strong>interprétariat social</strong>, mettant en pratique ses compétences linguistiques et son expertise spécialisée au profit d’un public fragile, avant d’effectuer différents stages : les deux plus notables étant certainement celui chez <a href="https://www.rosettatranslation.com/fr" class="aBlack" target="_blank" rel="noopener noreferrer">Rosetta Translation</a>, l’une des plus importantes agences de traduction de Londres, ainsi que celui au <a href="https://www.unhcr.org/be" class="aBlack" target="_blank">HCR</a>, l’Agence de l’ONU pour les réfugiés.<br><br>
+
+              En tant que <strong>traducteur juré (ou assermenté)</strong>, Alexis est également reconnu par les autorités compétentes en Belgique, à savoir le SPF Justice. Cette accréditation atteste de son engagement envers les normes les plus élevées de qualité et d'intégrité dans son travail de traduction. Fort de cette certification, Alexis est habilité à produire des <strong>traductions officielles et certifiées</strong> pour une variété de documents juridiques, administratifs et officiels, offrant à ses clients une tranquillité d'esprit et une garantie quant à l'authenticité et à la validité de ses traductions.<br><br>
+
+              Doté d'une solide <strong>formation de base en informatique et en programmation</strong>, Alexis est capable de de traduire efficacement des documents techniques, des spécifications logicielles et du contenu lié à l'informatique avec précision et cohérence. En combinant ses compétences en traduction avec sa maîtrise des langages de programmation et des outils de développement web, il offre un service complet et professionnel pour répondre à une variété de besoins de traduction dans le domaine de l'informatique et du web.<br><br>
+
+              Au-delà des traductions d'actes et certificats en tout genre, ses <strong>domaines de spécialisation</strong> sont les suivants :<br><br>
+
+              - l'informatique et le web (formations diverses et autodidaxie)<br>
+              - la musique (formation classique et jazz, ainsi que mélomanie aigüe)<br>
+              - les affaires européennes et internationales (option du Master en traduction spécialisée à l'UCLouvain)<br>
+              - littérature et sciences sociales
 						</p>
 					</div>
 				</div>
@@ -194,7 +212,13 @@
         <h1 class="titleContact">Contact</h1>
 
         <div class="containerContact">
-          <div><p>Pour obtenir un <strong>devis gratuit</strong>, envoyez-nous vos documents par mail à l'adresse <a class="maildanstxt" href="mailto:info@alotrad.com">info@alotrad.com</a>. Nous nous engageons à vous le faire parvenir dans les 24 heures. <br><br>Chat gratuit et rapide via Whatsapp bientôt.</p></div>
+          <div><p>Pour obtenir un <strong>devis gratuit</strong>, envoyez-nous vos documents par mail à l'adresse <a class="maildanstxt" href="mailto:info@alotrad.com">info@alotrad.com</a>. Nous nous engageons à vous le faire parvenir dans les 24 heures. N'hésitez pas à ajouter toute information pouvant s'avérer utile au projet.<br><br></p>
+            
+       <p style="font-size: small;">Pour toute question supplémentaire, vous pouvez nous contacter via notre chat Whatsapp, <strong>par message uniquement</strong> :<br><br>
+        <a href="https://wa.me/+32456222297" target="_blank" class="aBlack">+32 456 22 22 97</a> (français ou anglais)<br>
+        ou<br>
+        <a href="https://wa.me/+905307809006" target="_blank" class="aBlack">+90 530 780 90 06</a> (turc)<br>
+        </p></div>
            <p class="btnDevis"><a href="mailto:info@alotrad.com" rel="noopener noreferrer"><button type="button" class="btn btn-dark"><strong>Devis gratuit</strong></button></a></p>
         </div>
        </div>
