@@ -71,7 +71,7 @@ a:hover {
 }
 
 .footer {
-    box-shadow: 3px 0 5px rgba(16, 16, 17, 0.3);
+    box-shadow: 3px 0 5px rgba(16, 16, 17, 0.507);
 }
 
 .footerCont {
@@ -170,17 +170,12 @@ li {
 
 .accordion {
     width: 50%;
-    background: transparent;
-}
-
-.accordion-button {
-    background-color: #c21c0216;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .accordion-button:focus {
-    background-color: #c21c022b;
     box-shadow: none;
-    border-color: rgba(182, 36, 36, 0.116);
+    border-color: rgba(151, 113, 113, 0.428);
 }
 
 .accordion-button:not(.collapsed) {
@@ -287,31 +282,23 @@ p {
     text-align: end;
 }
 		
-	/* Box sizing depending on parent */
-	*,
-	*:before,
-	*:after {
-		box-sizing: inherit;
-	}
+.column {
+	width: 65vh;
+	margin-bottom: 10vh;
+    display: flex;
+    align-content: center;
+}
 		
-	/* Styling column */
-	.column {
-		width: 65vh;
-		margin-bottom: 10vh;
-        display: flex;
-        align-content: center;
-	}
+.cardi {
+    background: #ff914d00;
+    width: 75%;
+    border-radius: 4px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.265) 0px 2px 16px 0px;
+}
 		
-	/* Card designing */
-	.cardi {
-        background: #ff672b23;
-        width: 75%;
-        border-radius: 20px;
-	}
-		
-	.containerNEW {
-		padding: 2rem;
-	}
+.containerNEW {
+	padding: 2rem;
+}
 
 
 @media only screen and (max-width: 990px) {  
@@ -440,7 +427,6 @@ p {
         margin-bottom: -8vh;
     }
     .cardi {
-        background: #ff672b23;
         width: 100%;
         border-radius: 20px;
 	}
