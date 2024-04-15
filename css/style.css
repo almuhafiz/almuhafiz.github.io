@@ -22,10 +22,11 @@ h1 {
     font-family: 'Noto Sans';
     font-size: 2rem;
     font-weight: bold;
+    color: #db3e0a;
 }
 
-h2, h3, h4 {
-    font-family: 'Noto Sans';
+h6 {
+    color: #db3e0a;
 }
 
 a {
@@ -108,6 +109,11 @@ a:hover {
 .divavanttitre {
     padding: 4vh;
     margin-top: 4rem;
+}
+
+.datCV {
+    margin-top: -5px;
+    position: absolute;
 }
 
 img {
@@ -222,7 +228,6 @@ p {
     background-position:center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    margin-bottom: -10vh;
 }
 
 .entrimage3 {
