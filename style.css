@@ -1,0 +1,510 @@
+body {
+    background: #ff914d25;
+    font-family: 'Noto Sans';
+}
+
+html {
+    box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+    .logoAloTrad {
+        filter: brightness(0) invert(1);
+    }
+}
+
+h1 {
+    margin: 4rem;
+    margin-bottom: 3rem;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Noto Sans';
+    font-size: 2rem;
+    font-weight: bold;
+    color: #db3e0a;
+}
+
+h6 {
+    color: #db3e0a;
+}
+
+a {
+    color: white;
+  }
+
+.aBlack {
+    color: black;
+}
+
+a:hover {
+    color: #ff4000;
+  }
+
+.maildanstxt {
+    color: rgb(31, 21, 21);
+}
+
+.navbarLogo {
+    width: 170%;
+    margin-left: 1vw;
+}
+
+.navbar {
+    box-shadow: 0 3px 5px rgba(16, 16, 17, 0.3);
+}
+
+.navbarLogoDiv {
+    max-width:min-content;
+}
+
+.collapse {
+    justify-content: center;
+}
+
+.phover:hover {
+    color: #ff4000;
+}
+
+.dropdown {
+    position: absolute;
+    right: 2rem;
+}
+
+.footer {
+    box-shadow: 3px 0 5px rgba(16, 16, 17, 0.507);
+}
+
+.footerCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.footerCentralDiv {
+    width: 33.33%;
+}
+
+.footerLeftDiv {
+    width: 33.33%;
+}
+
+.footerRightDiv {
+    width: 33.33%;
+}
+
+.carousel {
+    width: 75%;
+    margin: 19% auto;
+} 
+
+.carouselW {
+    max-width: 50%;
+    margin: 2% auto;
+    margin-bottom: 5rem;
+    margin-top: 9.2rem;
+}
+
+.divavanttitre {
+    padding: 4vh;
+    margin-top: 4rem;
+}
+
+.datCV {
+    margin-top: -5px;
+    position: absolute;
+}
+
+img {
+    width: 100%;
+    z-index: 3; 
+}
+
+li {
+    padding-left: 2rem;
+}
+
+.collapse navbar-collapse {
+    display: flex;
+    justify-content: center;
+}
+
+.navbarbutton {
+    font-family: 'noto sans';
+    font-size: large;
+}
+
+.nav-item {
+    padding-top: 1rem;
+}
+
+.btn {
+    font-family: 'noto sans';
+    font-size: large;
+    border: none;
+}
+
+.btn:hover {
+    font-family: 'noto sans';
+    font-size: large;
+    background-color: #B5390E;
+    border: none;
+    color: white;
+}
+
+.btnDevis {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.dropdowntxt:hover {
+    color: black;
+}
+
+.accordiondiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ServicesCont {
+    max-width: 100%;
+    margin-top: -2rem;
+}
+
+.accordion {
+    width: 50%;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(151, 113, 113, 0.428);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #c22202b3;
+    color: rgb(245, 245, 245);
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f5f5f5'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transform: rotate(-180deg)
+}
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.historique {
+    margin: 0% auto;
+    max-width: 60%;
+    padding-top: 1rem;
+}
+
+.entrimage1 {
+    width: 100%;
+    height: 52vh;
+    margin-top: 8.5rem;
+    background-image: url(../img/aile-cuzdani-filtered.jpg);
+    background-size: 100%;
+    image-rendering: optimizeSpeed;
+    background-position:center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.entrimage2 {
+    width: 100%;
+    height: 52vh;
+    margin-top: 8.5rem;
+    background-image: url(../img/tampon.jpg);
+    background-size: 100%;
+    image-rendering: optimizeSpeed;
+    background-position:center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.entrimage3 {
+    width: 100%;
+    height: 52vh;
+    margin-top: 5rem;
+    background-image: url(../img/deux-passeports-turcs.jpg);
+    background-size: 100%;
+    image-rendering: optimizeSpeed;
+    background-position:center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.CVCont {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.titleContact {
+    margin: 2rem;
+}
+
+.containerContact {
+    margin: auto;
+    max-width: 30%;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    justify-content: center;
+    text-align: justify;
+    margin-bottom: 2rem;
+}
+
+.SMlogos {
+    width: 1.8rem;
+    margin-right: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.SMlogos:hover {
+    filter: none;
+}
+
+.viendez {
+    font-size: large;
+    text-align: center;
+}
+
+.mail {
+    text-align: center;
+    margin-top: -1rem;
+}
+
+.signature {
+    font-size: small;
+    text-align: end;
+}
+		
+.column {
+	width: 65vh;
+	margin-bottom: 10vh;
+    display: flex;
+    align-content: center;
+}
+		
+.cardi {
+    background: #ff914d00;
+    width: 75%;
+    border-radius: 4px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.265) 0px 2px 16px 0px;
+}
+		
+.containerNEW {
+	padding: 2rem;
+}
+
+
+@media only screen and (max-width: 990px) {  
+    .carousel {
+        width: 100%;
+        margin: 0% auto
+    } 
+    
+    .carouselW {
+        max-width: 90%;
+        margin: 2% auto;
+    }
+    
+    .historique {
+        margin: 0% auto;
+        max-width: 90%;
+        padding-top: 1rem;
+    }
+    
+    .containerContact {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 100%;
+        padding-top: 1rem;
+        display: block;
+        text-align: center;
+    }
+    
+    .entrimage1 {
+        width: 100%;
+        height: 29rem;
+        margin-top: 8.5rem;
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
+    }
+    
+    .entrimage2 {
+        width: 100%;
+        height: 29rem;
+        margin-top: 10vh;
+        margin-bottom: -8vh;
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+    }
+    
+    .entrimage3 {
+        width: 100%;
+        height: 29rem;
+        margin-top: 5rem;
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+    }
+    .accordion {
+        width: 75%;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 660px) {
+    body {
+        background-color: lightpin;
+    }
+
+    .logo {
+        width: 3rem;
+        margin-left: 1rem;
+    }
+    
+    .carousel {
+        width: 100%;
+        margin: 0% auto
+    } 
+    
+    .carouselW {
+        max-width: 100%;
+        margin: 5rem auto;
+    }
+    
+    .historique {
+        margin: 0% auto;
+        max-width: 90%;
+        padding-top: 1rem;
+    }
+    
+    
+    .entrimage1 {
+        width: 100%;
+        height: 20rem;
+        margin-top: 10vh;
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
+        margin-bottom: -8vh;
+    }
+    
+    .entrimage2 {
+        width: 100%;
+        height: 30rem;
+        margin-top: 0vh;
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position:center;
+        background-attachment: scroll;
+        margin-bottom: -15vw;
+    }
+    
+    .entrimage3 {
+        width: 100%;
+        height: 20rem;
+        margin-top: 5vh;
+        background-size: 100%;
+        image-rendering: optimizeSpeed;
+        background-position: center;
+        background-attachment: scroll;
+        margin-bottom: -8vh;
+    }
+    .cardi {
+        width: 100%;
+        border-radius: 20px;
+	}
+		
+	.containerNEW {
+		padding: 1rem;
+	}
+}
+
+@media only screen and (max-width: 420px) {
+    .body {
+        font-size: xx-small;
+    }    
+    .footer {
+        border-width: 10rem;
+        border-color: yellowgreen;
+    }
+    .navbar bg-dark navbar-expand-sm d-flex p-5 text-light footer {
+        display: block;
+    }
+    .accordion {
+        width: 95%;
+    }
+    .footerCentralDiv {
+        width: 100%;
+        display: block;
+        margin-top: -2vh;
+    }
+    
+    .footerLeftDiv {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+        margin-top: -1rem;
+        padding: auto;
+    }
+    
+    .footerRightDiv {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: -4vh;
+    }
+    .footerCont {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .mail {
+        display: flex;
+        justify-content: center;
+    }
+    .footerInfo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: -0vh;
+    }
+    .SMlogos {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        display: none;
+    }
+    .signature {
+        font-size: x-small;
+    }
+    .entrimage2 {
+        margin-bottom: -30vw;
+    }
+}
