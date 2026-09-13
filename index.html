@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlöTrad — Traducteur juré assermenté · Belgique</title>
+<style>
+  :root {
+    --rouge: #b8330a;
+    --rouge-vif: #d64420;
+    --rouge-clair: #f2653f;
+    --sombre: #1a1512;
+    --creme: #f5efe6;
+    --gris: #6b6058;
+    --gris-clair: #e0d6c9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    color: var(--gris);
+    background-color: var(--creme);
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in            { opacity: 0; }
+  .fade-in.is-visible { animation: fadeInUp 0.9s ease-out both; }
+  .fade-in-delay-1    { animation-delay: 0.12s; }
+  .fade-in-delay-2    { animation-delay: 0.24s; }
+  .fade-in-delay-3    { animation-delay: 0.36s; }
+  .fade-in-delay-4    { animation-delay: 0.48s; }
+
+  /* ---------- HEADER ---------- */
+  header {
+    background: rgba(245, 239, 230, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 18px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--gris-clair);
+  }
+
+  .logo {
+    font-size: 1.45em;
+    font-weight: 800;
+    color: var(--sombre);
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--rouge); }
+
+  nav { display: flex; align-items: center; gap: 0; }
+
+  nav a.nav-link {
+    color: var(--sombre);
+    margin-left: 28px;
+    font-size: 0.92em;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+  }
+  nav a.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--rouge);
+    transition: width 0.3s;
+  }
+  nav a.nav-link:hover::after { width: 100%; }
+  nav a.nav-link:hover { color: var(--rouge); }
+
+  /* CTA principal du menu */
+  nav a.nav-link.nav-cta {
+    margin-left: 22px;
+    padding: 9px 16px;
+    border-radius: 4px;
+    background: var(--rouge-vif);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(214, 68, 32, 0.2);
+  }
+  nav a.nav-link.nav-cta::after { display: none; }
+  nav a.nav-link.nav-cta:hover {
+    background: var(--rouge);
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .lang-switch {
+    display: flex;
+    gap: 4px;
+    border: 1px solid var(--gris-clair);
+    border-radius: 30px;
+    padding: 3px;
+  }
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--gris);
+    padding: 5px 12px;
+    font-size: 0.82em;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+  }
+  .lang-btn:hover { color: var(--sombre); }
+  .lang-btn.active {
+    background: var(--rouge);
+    color: white;
+  }
+
+  .whatsapp-header {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #25D366;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .whatsapp-header:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+  }
+  .whatsapp-header svg {
+    width: 22px;
+    height: 22px;
+    fill: white;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 140px 50px 110px;
+    text-align: center;
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: var(--rouge);
+    margin-bottom: 28px;
+    padding: 6px 18px;
+    border: 1px solid var(--rouge-clair);
+    border-radius: 30px;
+  }
+
+  .hero h1 {
+    font-size: 3.2em;
+    line-height: 1.15;
+    color: var(--sombre);
+    margin-bottom: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--rouge);
+  }
+
+  .hero-lead {
+    font-size: 1.18em;
+    max-width: 640px;
+    margin: 0 auto 42px;
+    color: var(--gris);
+    white-space: pre-line;
+  }
+
+  .hero-cta { display: inline-flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+  .btn-primary {
+    background: var(--rouge);
+    color: white;
+    padding: 17px 36px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1em;
+    display: inline-block;
+    transition: all 0.3s;
+    box-shadow: 0 4px 18px rgba(214, 68, 32, 0.25);
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background: var(--rouge-vif);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(214, 68, 32, 0.35);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--sombre);
+    padding: 17px 36px;
+    border-radius: 4px;
+    font-weight: 600;
+    border: 1.5px solid var(--sombre);
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover {
+    background: var(--sombre);
+    color: white;
+  }
+
+  /* ---------- SECTIONS COMMUNES ---------- */
+  section { padding: 100px 50px; }
+  section.alt { background: #fffdfa; }
+
+  .section-header { margin-bottom: 56px; }
+  .section-header.center { text-align: center; }
+
+  .section-header h2 {
+    font-size: 2.3em;
+    color: var(--sombre);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .section-header p {
+    font-size: 1.05em;
+    margin-top: 14px;
+    color: var(--gris);
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* Apparition progressive des domaines, pilotée au scroll par JS */
+  .services-grid .service-stagger {
+    --stagger-delay: 0s;
+  }
+  .services-grid .service-stagger.is-visible {
+    animation-delay: var(--stagger-delay);
+  }
+
+  .service-card {
+    background: white;
+    padding: 40px 32px;
+    border-radius: 6px;
+    border: 1px solid var(--gris-clair);
+    transition: all 0.35s;
+    position: relative;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(26, 21, 18, 0.08);
+    border-color: var(--rouge-clair);
+  }
+  .service-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 8px;
+    background: var(--creme);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    color: var(--rouge);
+  }
+  .service-icon svg { width: 28px; height: 28px; fill: var(--rouge); }
+  .service-card h3 {
+    font-size: 1.25em;
+    margin-bottom: 12px;
+    color: var(--sombre);
+    font-weight: 700;
+  }
+  .service-card p {
+    font-size: 0.97em;
+    color: var(--gris);
+  }
+
+  /* ---------- A PROPOS ---------- */
+  .about-section {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 70px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .about-side .eyebrow-line {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px;
+  }
+  .about-side .eyebrow-line::before {
+    content: ""; width: 40px; height: 3px; background: var(--rouge);
+  }
+  .about-side .eyebrow-line span {
+    text-transform: uppercase; letter-spacing: 2px;
+    font-size: 0.82em; font-weight: 700; color: var(--rouge);
+  }
+  .about-side h2 {
+    font-size: 2.1em;
+    color: var(--sombre);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+  .about-quote {
+    border-left: 3px solid var(--rouge);
+    padding-left: 20px;
+    font-size: 1.02em;
+    color: var(--sombre);
+    font-style: italic;
+    margin-top: 28px;
+  }
+  .about-content p {
+    color: var(--gris);
+    font-size: 1em;
+    margin-bottom: 18px;
+  }
+  .about-content h4 {
+    font-size: 0.92em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--sombre);
+    margin: 30px 0 18px;
+    font-weight: 700;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .skill-item {
+    padding: 14px 18px;
+    background: white;
+    border: 1px solid var(--gris-clair);
+    border-radius: 6px;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--sombre);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .skill-item::before {
+    content: "";
+    width: 7px; height: 7px;
+    background: var(--rouge);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ---------- PROCESSUS ---------- */
+  .process-section h2 { color: var(--sombre); }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .process-step {
+    padding: 8px 0;
+  }
+  .process-step .number {
+    font-size: 2.6em;
+    font-weight: 800;
+    color: var(--rouge-clair);
+    margin-bottom: 14px;
+    display: block;
+    line-height: 1;
+  }
+  .process-step h4 {
+    font-size: 1.1em;
+    color: var(--sombre);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .process-step p {
+    font-size: 0.95em;
+    color: var(--gris);
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-section {
+    background: linear-gradient(135deg, var(--rouge) 0%, var(--rouge-vif) 100%);
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    padding: 90px 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    white-space: pre-line;
+  }
+  .contact-section h2 {
+    font-size: 2.2em;
+    color: white;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 18px;
+  }
+  .contact-section p {
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    font-size: 1.05em;
+  }
+
+  /* BOUTONS CONTACT — hauteur identique impérative */
+  .btn-white,
+  .btn-whatsapp {
+    height: 54px;
+    box-sizing: border-box;
+    padding: 0 36px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 1em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-white {
+    min-width: 176px;
+    background: white;
+    color: var(--sombre);
+  }
+  .btn-white:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  }
+  .btn-whatsapp {
+    gap: 10px;
+    background: #25D366;
+    color: white;
+  }
+  .btn-whatsapp svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+    flex-shrink: 0;
+  }
+  .btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(37, 211, 102, 0.45);
+    background: #25D366;
+  }
+
+  .contact-buttons {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+  }
+
+  .contact-email {
+    margin-top: 30px;
+    font-size: 0.92em;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .contact-email a {
+    color: white;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+  }
+  .mailto-message {
+    display: block;
+    font-size: 0.75rem;
+    color: #93c5fd;
+    margin-top: 2px;
+    transition: all 0.2s ease;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    text-align: center;
+    padding: 50px;
+    color: var(--gris);
+    font-size: 0.88em;
+  }
+  footer .footer-line {
+    width: 40px;
+    height: 2px;
+    background: var(--gris-clair);
+    margin: 0 auto 24px;
+  }
+  footer a { color: var(--rouge); font-weight: 600; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .hero h1 { font-size: 2.2em; }
+    .hero { padding: 100px 24px 80px; }
+    header { padding: 16px 22px; }
+    section { padding: 70px 24px; }
+    .about-section { grid-template-columns: 1fr; gap: 30px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    nav a.nav-link { display: none; }
+    .lang-switch { display: none; }
+  }
+
+  @media (max-width: 560px) {
+    .process-grid { grid-template-columns: 1fr; }
+    .contact-section { padding: 70px 24px; }
+  }
+
+/* ============================================================
+   ANIMATIONS — listes (compétences, étapes, cartes)
+   ============================================================ */
+
+@keyframes listFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(214,68,32,0.55); }
+  50%      { transform: scale(1.4); box-shadow: 0 0 0 6px rgba(214,68,32,0); }
+}
+
+@keyframes sheen {
+  0%   { background-position: -120% center; }
+  100% { background-position: 220% center; }
+}
+
+/* État initial : invisible avant entrée dans la fenêtre */
+.list-item {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+  filter: blur(2px);
+  will-change: opacity, transform;
+}
+.list-item.is-visible {
+  animation: listFadeInUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Délais progressifs (jusqu'à 10 éléments par groupe) */
+.li-delay-1  { animation-delay: 0.05s; }
+.li-delay-2  { animation-delay: 0.10s; }
+.li-delay-3  { animation-delay: 0.15s; }
+.li-delay-4  { animation-delay: 0.20s; }
+.li-delay-5  { animation-delay: 0.25s; }
+.li-delay-6  { animation-delay: 0.30s; }
+.li-delay-7  { animation-delay: 0.35s; }
+.li-delay-8  { animation-delay: 0.40s; }
+.li-delay-9  { animation-delay: 0.45s; }
+.li-delay-10 { animation-delay: 0.50s; }
+
+/* ============================================================
+   COMPÉTENCES (.skill-item) — survol + lueur
+   ============================================================ */
+.skill-item {
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s,
+    border-color 0.35s,
+    background 0.35s;
+}
+.skill-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(214, 68, 32, 0.12) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  background-position: -120% center;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+.skill-item::before {
+  animation: pulseDot 2.4s ease-in-out infinite;
+}
+.skill-item:hover {
+  transform: translateY(-3px) translateX(2px);
+  border-color: var(--rouge);
+  background: linear-gradient(135deg, #ffffff 0%, #fff8f3 100%);
+  box-shadow: 0 10px 24px rgba(214, 68, 32, 0.15);
+}
+.skill-item:hover::after {
+  opacity: 1;
+  animation: sheen 1.1s ease-out;
+}
+.skill-item:hover::before {
+  animation-play-state: paused;
+  transform: scale(1.6);
+  background: var(--rouge-vif);
+}
+
+/* ============================================================
+   ÉTAPES DU PROCESSUS (.process-step) — chiffre qui réagit
+   ============================================================ */
+.process-step {
+  cursor: default;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.process-step .number {
+  display: inline-block;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s,
+    text-shadow 0.4s;
+}
+.process-step:hover {
+  transform: translateY(-4px);
+}
+.process-step:hover .number {
+  transform: scale(1.12) rotate(-4deg);
+  color: var(--rouge);
+  text-shadow: 2px 4px 12px rgba(214, 68, 32, 0.25);
+}
+.process-step h4 {
+  transition: color 0.3s;
+}
+.process-step:hover h4 { color: var(--rouge); }
+
+/* ============================================================
+   CARTES DE SERVICES (.service-card) — animation renforcée
+   ============================================================ */
+.service-card {
+  cursor: default;
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s,
+    border-color 0.4s;
+}
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: linear-gradient(90deg, var(--rouge), var(--rouge-clair));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px rgba(26, 21, 18, 0.12);
+  border-color: var(--rouge-clair);
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card .service-icon {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.4s,
+    color 0.4s;
+}
+.service-card:hover .service-icon {
+  transform: rotate(-6deg) scale(1.06);
+  background: var(--rouge);
+  color: white;
+}
+.service-card .service-icon svg {
+  transition: fill 0.4s;
+}
+.service-card:hover .service-icon svg { fill: white; }
+
+/* Respect de la préférence "réduire les animations" */
+@media (prefers-reduced-motion: reduce) {
+  .list-item,
+  .list-item.is-visible,
+  .skill-item,
+  .process-step,
+  .service-card {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* ============================================================
+   MENU HAMBURGER MOBILE
+   ============================================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 200;
+  padding: 6px;
+  position: relative;
+  margin-right: 10px;
+}
+.hamburger-line {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--sombre);
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.25s ease,
+              background 0.3s;
+  transform-origin: center;
+}
+.hamburger.open .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.open .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+.hamburger:hover .hamburger-line {
+  background: var(--rouge);
+}
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  pointer-events: none;
+  visibility: hidden;
+}
+.mobile-menu.is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+.mobile-menu-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 21, 18, 0.5);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.mobile-menu.is-open .mobile-menu-backdrop {
+  opacity: 1;
+}
+.mobile-menu-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  max-width: 82vw;
+  height: 100%;
+  background: var(--creme);
+  border-left: 1px solid var(--gris-clair);
+  padding: 90px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -8px 0 30px rgba(26, 21, 18, 0.12);
+  overflow-y: auto;
+}
+.mobile-menu.is-open .mobile-menu-panel {
+  transform: translateX(0);
+}
+	.mobile-menu-close {
+	  position: absolute;
+	  top: 28px;
+	  right: 24px;
+	  width: 44px;
+	  height: 44px;
+	  background: transparent;
+	  border: none;
+	  font-size: 2rem;
+	  line-height: 1;
+	  color: var(--sombre);
+	  cursor: pointer;
+	  z-index: 10;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  border-radius: 50%;
+	  transition: color 0.25s, background 0.25s, transform 0.3s;
+	  opacity: 0;
+	  transform: rotate(-90deg);
+	}
+	.mobile-menu.is-open .mobile-menu-close {
+	  opacity: 1;
+	  transform: rotate(0deg);
+	  transition-delay: 0.35s;
+	}
+	.mobile-menu-close:hover {
+	  color: var(--rouge);
+	  background: rgba(26, 21, 18, 0.06);
+	}
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mobile-nav-link {
+  display: block;
+  padding: 14px 18px;
+  font-size: 1.05em;
+  font-weight: 600;
+  color: var(--sombre);
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.25s, color 0.25s;
+}
+.mobile-menu.is-open .mobile-nav-link {
+  opacity: 1;
+  transform: translateX(0);
+}
+.mobile-menu.is-open .mobile-nav-link:nth-child(1) { transition-delay: 0.15s; }
+.mobile-menu.is-open .mobile-nav-link:nth-child(2) { transition-delay: 0.20s; }
+.mobile-menu.is-open .mobile-nav-link:nth-child(3) { transition-delay: 0.25s; }
+.mobile-menu.is-open .mobile-nav-link:nth-child(4) { transition-delay: 0.30s; }
+.mobile-nav-link:hover {
+  background: rgba(184, 51, 10, 0.06);
+  color: var(--rouge);
+}
+.mobile-nav-cta {
+  margin-top: 8px;
+  background: var(--rouge-vif);
+  color: white !important;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(214, 68, 32, 0.25);
+}
+.mobile-nav-cta:hover {
+  background: var(--rouge) !important;
+  color: white !important;
+  transform: translateY(-1px);
+}
+.mobile-lang-switch {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--gris-clair);
+}
+.lang-btn-mobile {
+  flex: 1;
+  padding: 10px 8px;
+  border: 1px solid var(--gris-clair);
+  background: white;
+  color: var(--gris);
+  font-size: 0.82em;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-align: center;
+}
+.lang-btn-mobile.active {
+  background: var(--rouge-vif);
+  color: white;
+  border-color: var(--rouge-vif);
+}
+.lang-btn-mobile:hover:not(.active) {
+  border-color: var(--rouge-clair);
+  color: var(--rouge);
+}
+@media (max-width: 900px) {
+  nav a.nav-link { display: none; }
+  .lang-switch   { display: none; }
+  .hamburger {
+    display: flex;
+    margin-left: 8px;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .header-right nav {
+    display: none;
+  }
+}
+@media (min-width: 901px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hamburger-line,
+  .mobile-menu-panel,
+  .mobile-menu-backdrop,
+  .mobile-nav-link {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<!-- =================== HEADER =================== -->
+<header>
+  <a href="#" class="logo">Alö<span>Trad</span></a>
+  <div class="header-right">
+      <button class="hamburger" aria-label="Menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    <nav>
+      <a href="#services"   class="nav-link" data-i18n="nav-services">Services</a>
+      <a href="#apropos"    class="nav-link" data-i18n="nav-about">À propos</a>
+      <a href="#processus"  class="nav-link" data-i18n="nav-process">Processus</a>
+      <a href="#contact"    class="nav-link nav-cta" data-i18n="nav-quote">Devis gratuit</a>
+    </nav>
+    <div class="lang-switch" role="group" data-i18n-aria-label="lang-selector" aria-label="Sélecteur de langue">
+      <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+      <button type="button" class="lang-btn"        data-lang="en">EN</button>
+      <button type="button" class="lang-btn"        data-lang="tr">TR</button>
+    </div>
+    <!-- REMPLACER LE NUMERO WHATSAPP CI-DESSOUS -->
+    <a class="whatsapp-header" href="https://wa.me/32456222297" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 0C7.163 0 0 7.163 0 16c0 2.823.737 5.466 2.014 7.778L0 32l8.434-2.014A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.091a13.08 13.08 0 0 1-6.665-1.825l-.477-.286-4.992 1.193 1.193-4.871-.31-.498A13.087 13.087 0 0 1 2.909 16C2.909 8.703 8.703 2.909 16 2.909S29.091 8.703 29.091 16 23.297 29.091 16 29.091zm7.21-9.79c-.395-.198-2.336-1.153-2.697-1.285-.361-.132-.624-.198-.887.198-.263.395-1.02 1.285-1.25 1.547-.231.263-.461.296-.856.099-.395-.198-1.667-.615-3.174-1.96-1.173-1.046-1.964-2.337-2.195-2.732-.231-.395-.025-.609.173-.806.178-.178.395-.461.593-.692.198-.231.263-.395.395-.659.132-.263.066-.494-.033-.692-.099-.198-.887-2.139-1.216-2.929-.32-.768-.645-.664-.887-.676-.231-.011-.494-.014-.758-.014a1.45 1.45 0 0 0-1.052.494c-.362.395-1.381 1.349-1.381 3.289 0 1.94 1.414 3.812 1.611 4.075.198.263 2.783 4.249 6.742 5.957.943.407 1.679.65 2.252.832.946.301 1.808.258 2.49.157.76-.114 2.336-.955 2.665-1.876.329-.922.329-1.712.23-1.876-.099-.165-.362-.263-.757-.461z"/>
+      </svg>
+    </a>
+  </div>
+</header>
+
+<!-- =================== MOBILE MENU =================== -->
+<div class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-backdrop"></div>
+  <div class="mobile-menu-panel">
+    <button class="mobile-menu-close" aria-label="Fermer le menu">&times;</button>
+    <nav class="mobile-nav">
+      <a href="#services"   class="mobile-nav-link" data-i18n="nav-services">Services</a>
+      <a href="#apropos"    class="mobile-nav-link" data-i18n="nav-about">À propos</a>
+      <a href="#processus"  class="mobile-nav-link" data-i18n="nav-process">Processus</a>
+      <a href="#contact"    class="mobile-nav-link mobile-nav-cta" data-i18n="nav-quote">Devis gratuit</a>
+    </nav>
+    <div class="mobile-lang-switch" role="group" aria-label="Sélecteur de langue">
+      <button type="button" class="lang-btn-mobile active" data-lang="fr">FR</button>
+      <button type="button" class="lang-btn-mobile"        data-lang="en">EN</button>
+      <button type="button" class="lang-btn-mobile"        data-lang="tr">TR</button>
+    </div>
+  </div>
+</div>
+
+<!-- =================== HERO =================== -->
+<section class="hero">
+  <div class="eyebrow fade-in" data-i18n="hero-eyebrow">Traducteur juré assermenté · BE / EN / TR</div>
+  <h1 class="fade-in fade-in-delay-1">
+    <span data-i18n="hero-title-1">Des traductions</span> <em data-i18n="hero-title-2">officielles</em><br>
+    <span data-i18n="hero-title-3">au service de vos démarches</span>
+  </h1>
+  <p class="hero-lead fade-in fade-in-delay-2" data-i18n="hero-lead">Traductions jurées assermentées en Belgique, légalisations et apostilles, et traductions spécialisées depuis l'anglais et le turc vers le français — pour vos documents officiels, professionnels ou personnels.</p>
+  <div class="hero-cta fade-in fade-in-delay-3">
+    <a href="#contact" class="btn-primary" data-i18n="hero-cta-quote">Demander un devis gratuit</a>
+    <a href="#services" class="btn-secondary" data-i18n="hero-cta-services">Découvrir les services</a>
+  </div>
+</section>
+
+<!-- =================== SERVICES =================== -->
+<section id="services" class="alt">
+  <div class="section-header center">
+    <h2 data-i18n="services-title">Une expertise adaptée à chaque besoin</h2>
+    <p data-i18n="services-lead">Trois piliers de service pour répondre à toutes vos exigences linguistiques.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card service-stagger fade-in">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM8 13h8v1.5H8V13zm0 3h8v1.5H8V16zm0 3h5v1.5H8V19z"/>
+        </svg>
+      </div>
+      <h3 data-i18n="service-sworn-title">Traduction jurée</h3>
+      <p data-i18n="service-sworn-text">Traductions certifiées reconnues par les autorités belges (SPF Justice, tribunaux, communes et notaires), pour actes d'état civil, certificats, diplômes, contrats et documents juridiques.</p>
+    </div>
+    <div class="service-card service-stagger fade-in fade-in-delay-1">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+        </svg>
+      </div>
+      <h3 data-i18n="service-legal-title">Légalisation</h3>
+      <p data-i18n="service-legal-text">Prise en charge complète des démarches de légalisation auprès des autorités compétentes.</p>
+    </div>
+    <div class="service-card service-stagger fade-in fade-in-delay-2">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L20 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+        </svg>
+      </div>
+      <h3 data-i18n="service-specialized-title">Traduction spécialisée</h3>
+      <p data-i18n="service-specialized-text">Traductions techniques, juridiques, musicales et académiques adaptées au domaine et à la terminologie propre à chaque secteur.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== A PROPOS =================== -->
+<section id="apropos">
+  <div class="about-section">
+    <div class="about-side fade-in">
+      <div class="eyebrow-line"><span data-i18n="about-label">À propos</span></div>
+      <h2>Alexis Erol<br>Leborgne-Özçelikel</h2>
+      <div class="about-quote">
+        <span data-i18n="about-quote">Une bonne traduction ne se contente pas de transposer les mots : elle transmet les intentions, préserve la nuance et fait voyager les voix sans jamais les trahir.</span>
+      </div>
+    </div>
+    <div class="about-content fade-in fade-in-delay-1">
+      <p data-i18n="about-text-1">Traducteur juré assermenté inscrit auprès du Tribunal de première instance et agréé par le SPF Justice, je traduis depuis l'anglais et le turc vers le français. Cette spécialisation garantit une maîtrise terminologique rigoureuse et le respect strict des usages administratifs belges.</p>
+      <p data-i18n="about-text-2">Chaque traduction est livrée avec le cachet officiel, la signature et la mention de certification requis par le SPF Justice, les communes, les consulats, les universités et les juridictions belges.</p>
+      <h4 data-i18n="about-expertise">Domaines d'expertise</h4>
+      <div class="skills-grid">
+        <div class="skill-item" data-i18n="skill-civil">Actes d'état civil et diplômes</div>
+        <div class="skill-item" data-i18n="skill-legal">Documents juridiques</div>
+        <div class="skill-item" data-i18n="skill-commercial">Contrats commerciaux</div>
+        <div class="skill-item" data-i18n="skill-music">Journalisme, politique, musique</div>
+        <div class="skill-item" data-i18n="skill-web">Web et localisation</div>
+        <div class="skill-item" data-i18n="skill-academic">Documents académiques</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PROCESSUS =================== -->
+<section id="processus" class="alt">
+  <div class="section-header center">
+    <h2 data-i18n="process-title">Un processus clair en quatre étapes</h2>
+    <p data-i18n="process-lead">De l'envoi de votre document à la livraison de la traduction certifiée.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step fade-in">
+      <span class="number">01</span>
+      <h4 data-i18n="step-send-title">Vous envoyez votre document</h4>
+      <p data-i18n="step-send-text">Scannez ou photographiez vos documents et transmettez-les par e-mail ou WhatsApp, en toute confidentialité.</p>
+    </div>
+    <div class="process-step fade-in fade-in-delay-1">
+      <span class="number">02</span>
+      <h4 data-i18n="step-analyze-title">J'analyse votre besoin</h4>
+      <p data-i18n="step-analyze-text">Je vérifie le format, la terminologie et la certification requise (Jurée ou non ? Légalisation ou non ?).</p>
+    </div>
+    <div class="process-step fade-in fade-in-delay-2">
+      <span class="number">03</span>
+      <h4 data-i18n="step-quote-title">Vous recevez un devis</h4>
+      <p data-i18n="step-quote-text">Devis détaillé et gratuit sous 24 heures, sans engagement, avec délai de livraison précis.</p>
+    </div>
+    <div class="process-step fade-in fade-in-delay-3">
+      <span class="number">04</span>
+      <h4 data-i18n="step-delivery-title">Livraison certifiée</h4>
+      <p data-i18n="step-delivery-text">Vous recevez votre traduction jurée au format PDF signé et, sur demande, l'original papier par courrier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CONTACT =================== -->
+<section id="contact">
+  <div class="contact-section fade-in">
+    <h2 data-i18n="contact-title">Un projet de traduction ?</h2>
+    <p data-i18n="contact-lead">Envoyez-moi vos documents pour un devis gratuit sous 24 heures.
+Réponse rapide par e-mail ou WhatsApp.</p>
+    <div class="contact-buttons">
+      <a class="btn-white" href="/cdn-cgi/l/email-protection#325b5c545d72535e5d464053561c515d5f" data-i18n="contact-email">E-mail</a>
+      <!-- REMPLACER LE NUMERO WHATSAPP CI-DESSOUS -->
+      <a class="btn-whatsapp" href="https://wa.me/32456222297" target="_blank" rel="noopener" data-i18n="contact-whatsapp">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 0C7.163 0 0 7.163 0 16c0 2.823.737 5.466 2.014 7.778L0 32l8.434-2.014A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.091a13.08 13.08 0 0 1-6.665-1.825l-.477-.286-4.992 1.193 1.193-4.871-.31-.498A13.087 13.087 0 0 1 2.909 16C2.909 8.703 8.703 2.909 16 2.909S29.091 8.703 29.091 16 23.297 29.091 16 29.091zm7.21-9.79c-.395-.198-2.336-1.153-2.697-1.285-.361-.132-.624-.198-.887.198-.263.395-1.02 1.285-1.25 1.547-.231.263-.461.296-.856.099-.395-.198-1.667-.615-3.174-1.96-1.173-1.046-1.964-2.337-2.195-2.732-.231-.395-.025-.609.173-.806.178-.178.395-.461.593-.692.198-.231.263-.395.395-.659.132-.263.066-.494-.033-.692-.099-.198-.887-2.139-1.216-2.929-.32-.768-.645-.664-.887-.676-.231-.011-.494-.014-.758-.014a1.45 1.45 0 0 0-1.052.494c-.362.395-1.381 1.349-1.381 3.289 0 1.94 1.414 3.812 1.611 4.075.198.263 2.783 4.249 6.742 5.957.943.407 1.679.65 2.252.832.946.301 1.808.258 2.49.157.76-.114 2.336-.955 2.665-1.876.329-.922.329-1.712.23-1.876-.099-.165-.362-.263-.757-.461z"/>
+        </svg>
+        WhatsApp
+      </a>
+    </div>
+    <div class="contact-email">
+      <span data-i18n="contact-direct">ou directement&nbsp;: </span><a href="mailto:info@alotrad.com" class="mailto-link"><span class="__cf_email__" data-cfemail="650c0b030a2504090a111704014b060a08"><span class="__cf_email__" data-cfemail="e68f888089a6878a8992948782c885898b"><span class="__cf_email__" data-cfemail="721b1c141d32131e1d060013165c111d1f">info@alotrad.com</span></span></span><span class="mailto-message"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer>
+  <div class="footer-line"></div>
+  <p data-i18n="footer-text">© 2026 AlöTrad · Alexis Leborgne, traducteur juré · Belgique</p>
+  <p style="margin-top: 8px;"><a href="mailto:info@alotrad.com"><span class="__cf_email__" data-cfemail="f79e999198b7969b9883859693d994989a"><span class="__cf_email__" data-cfemail="fe97909891be9f92918a8c9f9ad09d9193"><span class="__cf_email__" data-cfemail="6b02050d042b0a07041f190a0f45080406">info@alotrad.com</span></span></span></a></p>
+</footer>
+
+<!-- =================== JS =================== -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function () {
+  "use strict";
+
+  var translations = {
+    fr: {
+      "lang-selector":   "Sélecteur de langue",
+      "services-title":  "Une expertise adaptée à chaque besoin",
+      "services-lead":   "Trois piliers de service pour répondre à toutes vos exigences linguistiques.",
+      "service-sworn-title": "Traduction jurée",
+      "service-sworn-text": "Traductions certifiées reconnues par les autorités belges (SPF Justice, tribunaux, communes et notaires), pour actes d'état civil, certificats, diplômes, contrats et documents juridiques.",
+      "service-legal-title": "Légalisation",
+      "service-legal-text": "Prise en charge complète des démarches de légalisation auprès des autorités compétentes.",
+      "service-specialized-title": "Traduction spécialisée",
+      "service-specialized-text": "Traductions techniques, juridiques, musicales et académiques adaptées au domaine et à la terminologie propre à chaque secteur.",
+      "about-label": "À propos",
+      "about-text-1": "Traducteur juré, assermenté auprès du Tribunal de première instance de Bruxelles et agréé par le SPF Justice, je traduis depuis l'anglais et le turc vers le français. Cette spécialisation garantit une maîtrise terminologique rigoureuse et le respect strict des usages administratifs belges.",
+      "about-text-2": "Chaque traduction est livrée avec la signature électronique, qui fait office de cachet depuis 2022, et la mention de certification requis par le SPF Justice, les communes, les consulats, les universités et les juridictions belges.",
+      "about-expertise": "Domaines d'expertise",
+      "skill-civil": "Actes d'état civil et diplômes", "skill-legal": "Documents juridiques", "skill-commercial": "Contrats commerciaux", "skill-music": "Journalisme, politique, musique", "skill-academic": "Documents académiques", "skill-web": "Web et localisation",
+      "process-title": "Un processus clair en quatre étapes", "process-lead": "De l'envoi de votre document à la livraison de la traduction certifiée.",
+      "step-send-title": "Vous envoyez votre document", "step-send-text": "Scannez ou photographiez vos documents et transmettez-les par e-mail ou WhatsApp, en toute confidentialité.",
+      "step-analyze-title": "J'analyse votre besoin", "step-analyze-text": "Je vérifie le format, la terminologie et la certification requise (Jurée ou non ? Légalisation ou non ?).",
+      "step-quote-title": "Vous recevez un devis", "step-quote-text": "Devis détaillé et gratuit sous 24 heures, sans engagement, avec délai de livraison précis.",
+      "step-delivery-title": "Livraison certifiée", "step-delivery-text": "Vous recevez votre traduction jurée au format PDF signé et, sur demande, l'original papier par courrier.",
+      "contact-direct": "ou directement : ", "footer-text": "© 2026 AlöTrad · Alexis Leborgne, traducteur juré · Belgique",      "nav-services":    "Services",
+      "nav-about":       "À propos",
+      "nav-process":     "Processus",
+      "nav-quote":       "Devis gratuit",
+      "hero-eyebrow":    "Traducteur juré · FR / EN / TR",
+      "hero-title-1":    "Des traductions",
+      "hero-title-2":    "officielles",
+      "hero-title-3":    "au service de vos démarches",
+      "hero-lead":       "Traductions jurées pour la Belgique et ses ambassades/consulats. Légalisations. Traductions spécialisées.\nDepuis l'anglais et le turc vers le français.\nPour vos documents officiels, professionnels ou personnels.",
+      "hero-cta-quote":  "Demander un devis gratuit",
+      "hero-cta-services":"Découvrir les services",
+      "contact-title":   "Un projet de traduction ?",
+      "contact-lead":    "Envoyez-moi vos documents pour un devis gratuit sous 24 heures.\nRéponse rapide par e-mail ou WhatsApp.",
+      "contact-email":   "E-mail",
+      "contact-whatsapp":"WhatsApp",
+      "about-quote":     "Une bonne traduction ne se contente pas de transposer fidèlmement des mots : elle transmet l'intention, préserve la nuance, fait voyager le texte sans jamais le trahir.",
+      "clipboard-hint": "Cliquez pour copier",
+      "clipboard-success": "Adresse copiée !"
+    },
+    en: {
+      "lang-selector":   "Language selector",
+      "services-title":  "Expertise tailored to every need",
+      "services-lead":   "Three service pillars to meet all your language requirements.",
+      "service-sworn-title": "Sworn translation",
+      "service-sworn-text": "Certified translations recognised by Belgian authorities (FPS Justice, courts, municipalities and notaries), for civil-status records, diplomas, contracts and legal documents.",
+      "service-legal-title": "Legalisation",
+      "service-legal-text": "Complete support with legalisation procedures before the competent authorities.",
+      "service-specialized-title": "Specialised translation",
+      "service-specialized-text": "Technical, legal, musical and academic translations adapted to each field and its specific terminology.",
+      "about-label": "About",
+      "about-text-1": "Sworn translator before the Brussels Court of First Instance and accredited by the FPS Justice, I translate from English and Turkish into French. This specialisation ensures rigorous terminological expertise and strict compliance with Belgian administrative practices.",
+      "about-text-2": "Each translation is delivered with an electronic signature, which has served as the official stamp since 2022, together with the certification statement required by the FPS Justice, municipalities, consulates, universities and Belgian courts.",
+      "about-expertise": "Areas of expertise",
+      "skill-civil": "Official documents and diplomas", "skill-legal": "Legal documents", "skill-commercial": "Commercial contracts", "skill-music": "Journalism, politics, music", "skill-academic": "Academic documents", "skill-web": "Web and localisation",
+      "process-title": "A clear four-step process", "process-lead": "From sending your document to receiving the certified translation.",
+      "step-send-title": "You send your document", "step-send-text": "Scan or photograph your documents and send them by email or WhatsApp, in complete confidentiality.",
+      "step-analyze-title": "I assess your needs", "step-analyze-text": "I check the format, terminology and required certification (sworn? legalisation?).",
+      "step-quote-title": "You receive a quote", "step-quote-text": "A detailed, free quote within 24 hours, with no obligation and a precise delivery timeframe.",
+      "step-delivery-title": "Certified delivery", "step-delivery-text": "You receive your sworn translation as a signed PDF and, on request, the paper original by post.",
+      "contact-direct": "or directly: ", "footer-text": "© 2026 AlöTrad · Alexis Leborgne, sworn translator · Belgium",      "nav-services":    "Services",
+      "nav-about":       "About",
+      "nav-process":     "Process",
+      "nav-quote":       "Free quote",
+      "hero-eyebrow":    "Sworn translator · FR / EN / TR",
+      "hero-title-1":    "Official translations",
+      "hero-title-2":    "for your needs",
+      "hero-title-3":    "tailored to your procedures",
+      "hero-lead":       "Sworn translations for Belgium and its embassies/consulates. Legalizations. Specialised translations.\nFrom English and Turkish into French.\nFor your official, professional, or personal documents.",
+      "hero-cta-quote":  "Get your free quote",
+      "hero-cta-services":"Explore the services",
+      "contact-title":   "Have a translation project in mind?",
+      "contact-lead":    "Send me your documents for a free quote within 24 hours.\nQuick reply by email or WhatsApp.",
+      "contact-email":   "E-mail",
+      "contact-whatsapp":"WhatsApp",
+      "about-quote":     "A good translation does not merely transpose words: it conveys the intention, preserves nuance, and carries the text across without ever betraying it.",
+      "clipboard-hint": "Click to copy",
+      "clipboard-success": "Copied!"
+    },
+    tr: {
+      "lang-selector":   "Dil seçici",
+      "services-title":  "Her ihtiyaca uygun uzmanlık",
+      "services-lead":   "Tüm dil gereksinimlerinizi karşılayan üç temel hizmet alanı.",
+      "service-sworn-title": "Yeminli çeviri",
+      "service-sworn-text": "Belçika makamlarınca (Adalet Bakanlığı, mahkemeler, belediyeler ve noterler) tanınan; nüfus kayıtları, diplomalar, sözleşmeler ve hukuki belgeler için onaylı çeviriler.",
+      "service-legal-title": "Tasdik ve onay işlemleri",
+      "service-legal-text": "Yetkili makamlar nezdindeki tasdik ve onay işlemlerinde eksiksiz destek.",
+      "service-specialized-title": "Uzmanlık çevirisi",
+      "service-specialized-text": "Her alanın ve kendine özgü terminolojisinin gereksinimlerine uygun teknik, hukuki, müzikal ve akademik çeviriler.",
+      "about-label": "Hakkımda",
+      "about-text-1": "Brüksel Birinci Derece Mahkemesi nezdinde yeminli ve Adalet Bakanlığı tarafından yetkilendirilmiş tercümanım; İngilizce ve Türkçeden Fransızcaya çeviri yapıyorum. Bu uzmanlık, terminolojiye titizlikle hâkimiyet ve Belçika idari uygulamalarına tam uyum sağlar.",
+      "about-text-2": "Her çeviri, 2022 yılından bu yana resmi kaşe yerine geçen elektronik imza ve Adalet Bakanlığı, belediyeler, konsolosluklar, üniversiteler ile Belçika mahkemelerinin talep ettiği tasdik beyanıyla teslim edilir.",
+      "about-expertise": "Uzmanlık alanları",
+      "skill-civil": "Resmî belgeler ve diplomalar", "skill-legal": "Hukuki belgeler", "skill-commercial": "Ticari sözleşmeler", "skill-music": "Gazetecilik, siyaset, müzik", "skill-academic": "Akademik belgeler", "skill-web": "Web ve lokalizasyon",
+      "process-title": "Dört aşamada açık bir süreç", "process-lead": "Belgenizi göndermenizden onaylı çevirinin teslimine kadar.",
+      "step-send-title": "Belgenizi gönderirsiniz", "step-send-text": "Belgelerinizi tarayın veya fotoğraflayın; e-posta ya da WhatsApp üzerinden tamamen gizli biçimde iletin.",
+      "step-analyze-title": "İhtiyacınızı analiz ederim", "step-analyze-text": "Formatı, terminolojiyi ve gereken tasdik türünü kontrol ederim (yeminli çeviri mi, tasdik mi?).",
+      "step-quote-title": "Teklif alırsınız", "step-quote-text": "Herhangi bir taahhüt gerektirmeyen, teslim süresi net, ayrıntılı ve ücretsiz teklif 24 saat içinde.",
+      "step-delivery-title": "Onaylı teslimat", "step-delivery-text": "Yeminli çevirinizi imzalı PDF olarak, talep etmeniz hâlinde kağıt aslıyla birlikte posta yoluyla alırsınız.",
+      "contact-direct": "veya doğrudan: ", "footer-text": "© 2026 AlöTrad · Alexis Leborgne, yeminli tercüman · Belçika",      "nav-services":    "Hizmetler",
+      "nav-about":       "Hakkımda",
+      "nav-process":     "Süreç",
+      "nav-quote":       "Ücretsiz teklif",
+      "hero-eyebrow":    "Yeminli tercüman · FR / EN / TR",
+      "hero-title-1":    "Resmi çeviriler",
+      "hero-title-2":    "ihtiyaçlarınız için",
+      "hero-title-3":    "işlemlerinize özel",
+      "hero-lead":       "Belçika ve büyükelçilikleri/konsoloslukları için yeminli tercümeler. Tasdik işlemleri. Uzmanlık çevirileri.\nİngilizce ve Türkçeden Fransızcaya.\nResmi, profesyonel veya kişisel belgeleriniz için.",
+      "hero-cta-quote":  "Ücretsiz teklif alın",
+      "hero-cta-services":"Hizmetleri keşfedin",
+      "contact-title":   "Bir çeviri projeniz mi var?",
+      "contact-lead":    "Belgelerinizi gönderin, 24 saat içinde ücretsiz fiyat teklifi alın.\nE-posta veya WhatsApp ile hızlı yanıt.",
+      "contact-email":   "E-mail",
+      "contact-whatsapp":"WhatsApp",
+      "about-quote":     "İyi bir çeviri yalnızca kelimeleri aktarmakla yetinmez: niyeti taşır, nüansı korur ve metni asla ona ihanet etmeden karşıya ulaştırır.",
+      "clipboard-hint": "Kopyalamak için tıklayın",
+      "clipboard-success": "Kopyalandı!"
+    }
+  };
+
+  var DEFAULT_LANG = "fr";
+  var STORAGE_KEY  = "alotrad-lang";
+
+  function getInitialLang() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && translations[saved]) return saved;
+    } catch (e) { /* localStorage peut être indisponible */ }
+    return DEFAULT_LANG;
+  }
+
+  function applyLang(lang) {
+    if (!translations[lang]) lang = DEFAULT_LANG;
+    var dict = translations[lang];
+
+    var nodes = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < nodes.length; i++) {
+      var key = nodes[i].getAttribute("data-i18n");
+      if (dict[key] !== undefined) {
+        nodes[i].textContent = dict[key];
+      }
+    }
+
+    var attrNodes = document.querySelectorAll("[data-i18n-aria-label]");
+    for (var q = 0; q < attrNodes.length; q++) {
+      var attrKey = attrNodes[q].getAttribute("data-i18n-aria-label");
+      if (dict[attrKey] !== undefined) attrNodes[q].setAttribute("aria-label", dict[attrKey]);
+    }
+
+    // Titre du document
+    if (lang === "en")      document.title = "AlöTrad — Sworn translator FR / EN / TR";
+    else if (lang === "tr") document.title = "AlöTrad — Yeminli tercüman FR / EN / TR";
+    else                    document.title = "AlöTrad — Traducteur juré assermenté · Belgique";
+
+    document.documentElement.setAttribute("lang", lang);
+
+    // État actif des boutons de langue
+    var btns = document.querySelectorAll(".lang-btn");
+    for (var j = 0; j < btns.length; j++) {
+      if (btns[j].getAttribute("data-lang") === lang) {
+        btns[j].classList.add("active");
+      } else {
+        btns[j].classList.remove("active");
+      }
+    }
+  }
+
+  // Init
+  document.addEventListener("DOMContentLoaded", function () {
+    var lang = getInitialLang();
+    applyLang(lang);
+
+    var btns = document.querySelectorAll(".lang-btn");
+    for (var k = 0; k < btns.length; k++) {
+      btns[k].addEventListener("click", function (ev) {
+        var chosen = ev.currentTarget.getAttribute("data-lang");
+        applyLang(chosen);
+        try { localStorage.setItem(STORAGE_KEY, chosen); } catch (e) { /* ignore */ }
+      });
+    }
+
+    // Déclenche les animations fadeInUp lorsque les sections entrent dans la fenêtre.
+    var animated = document.querySelectorAll(".fade-in");
+    var serviceCards = document.querySelectorAll(".services-grid .service-stagger");
+    for (var sc = 0; sc < serviceCards.length; sc++) {
+      serviceCards[sc].style.setProperty("--stagger-delay", (sc * 0.12) + "s");
+    }
+    if ("IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(function (entries, obs) {
+        for (var n = 0; n < entries.length; n++) {
+          if (entries[n].isIntersecting) {
+            entries[n].target.classList.add("is-visible");
+            obs.unobserve(entries[n].target);
+          }
+        }
+      }, { threshold: 0.12 });
+      for (var a = 0; a < animated.length; a++) observer.observe(animated[a]);
+    } else {
+      for (var b = 0; b < animated.length; b++) animated[b].classList.add("is-visible");
+    }
+  });
+
+  /* ===========================================================
+     ANIMATIONS — listes (compétences / étapes / cartes)
+     Pilotage des délais progressifs et de l'observateur de scroll.
+     Indépendant du sélecteur de langues (qui reste intact).
+     =========================================================== */
+  function initListAnimations() {
+    var groups = [
+      { sel: ".skill-item",   max: 6 },
+      { sel: ".process-step", max: 4 },
+      { sel: ".service-card", max: 3 }
+    ];
+
+    for (var g = 0; g < groups.length; g++) {
+      var nodes = document.querySelectorAll(groups[g].sel);
+      for (var i = 0; i < nodes.length; i++) {
+        // On ajoute .list-item uniquement si pas déjà fait
+        if (!nodes[i].classList.contains("list-item")) {
+          nodes[i].classList.add("list-item");
+        }
+        var d = (i % groups[g].max) + 1;
+        if (!nodes[i].classList.contains("li-delay-" + d)) {
+          nodes[i].classList.add("li-delay-" + d);
+        }
+      }
+      if ("IntersectionObserver" in window) {
+        var obs = new IntersectionObserver(function (entries, o) {
+          for (var k = 0; k < entries.length; k++) {
+            if (entries[k].isIntersecting) {
+              entries[k].target.classList.add("is-visible");
+              o.unobserve(entries[k].target);
+            }
+          }
+        }, { threshold: 0.18, rootMargin: "0px 0px -40px 0px" });
+        for (var j = 0; j < nodes.length; j++) obs.observe(nodes[j]);
+      } else {
+        for (var n = 0; n < nodes.length; n++) nodes[n].classList.add("is-visible");
+      }
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initListAnimations);
+  } else {
+    initListAnimations();
+  }
+
+  /* ============================================================
+     GESTION DU MENU HAMBURGER MOBILE
+     ============================================================ */
+  (function () {
+    var hamburger   = document.querySelector(".hamburger");
+    var mobileMenu  = document.querySelector(".mobile-menu");
+    var backdrop    = document.querySelector(".mobile-menu-backdrop");
+    var mobileLinks = document.querySelectorAll(".mobile-nav-link");
+    var body        = document.body;
+
+    if (!hamburger || !mobileMenu) return;
+
+    function openMenu() {
+      hamburger.classList.add("open");
+      hamburger.setAttribute("aria-expanded", "true");
+      mobileMenu.classList.add("is-open");
+      mobileMenu.setAttribute("aria-hidden", "false");
+      body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      hamburger.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+      mobileMenu.classList.remove("is-open");
+      mobileMenu.setAttribute("aria-hidden", "true");
+      body.style.overflow = "";
+    }
+
+    function toggleMenu() {
+      if (mobileMenu.classList.contains("is-open")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    hamburger.addEventListener("click", toggleMenu);
+
+    var closeBtn = document.querySelector(".mobile-menu-close");
+    
+    if (backdrop) {
+      backdrop.addEventListener("click", closeMenu);
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeMenu);
+    }
+
+    for (var i = 0; i < mobileLinks.length; i++) {
+      mobileLinks[i].addEventListener("click", function () {
+        setTimeout(closeMenu, 120);
+      });
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && mobileMenu.classList.contains("is-open")) {
+        closeMenu();
+        hamburger.focus();
+      }
+    });
+
+    var mobileLangButtons = document.querySelectorAll(".lang-btn-mobile");
+
+    for (var j = 0; j < mobileLangButtons.length; j++) {
+      mobileLangButtons[j].addEventListener("click", function () {
+        var lang = this.getAttribute("data-lang");
+        if (!lang) return;
+
+        for (var k = 0; k < mobileLangButtons.length; k++) {
+          mobileLangButtons[k].classList.remove("active");
+        }
+        this.classList.add("active");
+
+        var desktopButtons = document.querySelectorAll(".lang-switch .lang-btn");
+        for (var d = 0; d < desktopButtons.length; d++) {
+          desktopButtons[d].classList.remove("active");
+          if (desktopButtons[d].getAttribute("data-lang") === lang) {
+            desktopButtons[d].classList.add("active");
+          }
+        }
+
+        if (typeof applyLang === "function") {
+          applyLang(lang);
+        }
+
+        try {
+          localStorage.setItem("alotrad-lang", lang);
+        } catch (e) { /* ok */ }
+      });
+    }
+
+    var originalApplyLang = window.applyLang;
+    if (typeof originalApplyLang === "function") {
+      window.applyLang = function (lang) {
+        originalApplyLang(lang);
+        for (var m = 0; m < mobileLangButtons.length; m++) {
+          mobileLangButtons[m].classList.remove("active");
+          if (mobileLangButtons[m].getAttribute("data-lang") === lang) {
+            mobileLangButtons[m].classList.add("active");
+          }
+        }
+      };
+    }
+
+    // --- Clipboard pour l'adresse email ---
+    function copyToClipboard(text) {
+      var dummy = document.createElement("textarea");
+      document.body.appendChild(dummy);
+      dummy.value = text;
+      dummy.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummy);
+    }
+
+    function setMailtoMessage(key) {
+      var lang = getInitialLang();
+      var msg = translations[lang] && translations[lang][key];
+      if (msg !== undefined) {
+        var node = document.querySelector('.mailto-message');
+        if (node) node.textContent = msg;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var mailtoLinks = document.querySelectorAll('.mailto-link');
+      for (var i = 0; i < mailtoLinks.length; i++) {
+        mailtoLinks[i].addEventListener('click', function (e) {
+          e.preventDefault();
+          var href = this.getAttribute('href') || '';
+          var email = href.replace('mailto:', '');
+          copyToClipboard(email);
+          var lang = getInitialLang();
+          var successMsg = translations[lang] && translations[lang]['clipboard-success'];
+          if (successMsg !== undefined) {
+            var node = document.querySelector('.mailto-message');
+            if (node) node.textContent = successMsg;
+          }
+          setTimeout(function () {
+            var l = getInitialLang();
+            var hintMsg = translations[l] && translations[l]['clipboard-hint'];
+            var n = document.querySelector('.mailto-message');
+            if (hintMsg !== undefined && n) n.textContent = hintMsg;
+          }, 2000);
+        });
+      }
+      setMailtoMessage('clipboard-hint');
+
+      // Rafraîchir le hint quand la langue change
+      var wrappedApplyLang = applyLang;
+      applyLang = function (lang) {
+        wrappedApplyLang(lang);
+        setTimeout(function () { setMailtoMessage('clipboard-hint'); }, 50);
+      };
+    });
+  })();
+
+})();
+</script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"8607d2a720d14b038279025b2b5a82e5","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
